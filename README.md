@@ -24,7 +24,7 @@
    ![wx1.png](img/wx1.png)
 3. 获取appid 、appsecret  
 
-   ![wx2.png](img/wx2.png)
+   ![wx2.png](https://s2.loli.net/2026/01/23/cfzjWdlpVDPyECu.png)
 5. 关注测试公众号，获取userid(微信号)，新增测试模板，获取template_id(模板ID)(<mark> 注意模版内容填写格式 `内容: {{content.DATA}}` , 不要仅填写`{{content.DATA}}` 前面随便加一点其他文案，不然推送会不显示内容！！！  <mark>)  
 
    ![wx3.png](img/wx3.png)
