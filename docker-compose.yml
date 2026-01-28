@@ -1,0 +1,36 @@
+services:
+  wxpush:
+    # 替换为你实际的 GitHub 镜像地址
+    image: ghcr.io/kiss2u/go-wxpush:latest
+    container_name: go-wxpush
+    restart: unless-stopped
+    
+    # 网络模式：Host 模式 (直接使用宿主机端口) 
+    # 或者使用 ports 映射: - "${SERVER_PORT}:${SERVER_PORT}"
+    network_mode: host
+
+    # 加载 .env 文件
+    env_file:
+      - .env
+
+    # 核心逻辑：将 .env 变量映射为 CLI 参数
+    # 注意：这里必须使用 JSON 数组格式 (exec 模式)，因为 scratch 没有 shell 来处理空格
+    command:
+      - "-port"
+      - "${SERVER_PORT}"
+      - "-appid"
+      - "${WX_APPID}"
+      - "-secret"
+      - "${WX_SECRET}"
+      - "-userid"
+      - "${WX_USERID}"
+      - "-template_id"
+      - "${WX_TEMPLATE_ID}"
+      - "-base_url"
+      - "${WX_BASE_URL}"
+      - "-title"
+      - "${WX_TITLE}"
+      - "-content"
+      - "${WX_CONTENT}"
+      - "-tz"
+      - "${TZ}"
